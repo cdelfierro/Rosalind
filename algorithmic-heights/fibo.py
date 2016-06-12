@@ -29,7 +29,18 @@ def fib2(n):
         f[i] = f[i - 1] + f[i - 2]
     return f[n]
 
-x = int(sys.stdin.read())
+try:
+    x = int(sys.argv[1])
+except ValueError:
+    try:
+        with open(sys.argv[1], "r", encoding="utf-8") as ini_file:
+            x = int(ini_file.read().strip())
+    except FileNotFoundError:
+        print("File not found")
+        sys.exit(1)
+except:
+    x = int(sys.stdin.read())
+
 start = clock()
 fibonacci = fib2(x)
 end = clock()
