@@ -47,6 +47,5 @@ D = " ".join(str(__) for __ in D)
 with open("output/bfs.txt", "w", encoding="utf-8", newline="\n") as out_file:
     out_file.write(D + "\n")
 
-print(graph)
 print(D)
 print("Time: {} segs.".format(time))
