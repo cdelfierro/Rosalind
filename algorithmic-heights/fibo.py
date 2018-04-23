@@ -5,23 +5,7 @@
 """
 import argparse
 import sys
-
-
-def fib1(n):
-    """ Recursive Fibonacci """
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
-    return fib1(n - 1) + fib1(n - 2)
-
-
-def fib2(n):
-    """ Faster Fibonacci """
-    a, b = 0, 1
-    for i in range(n):
-        a, b = b, a + b
-    return a
+from sequences import linear_fib as F
 
 
 parser = argparse.ArgumentParser(description="Calculate the n-th value of the \
@@ -35,7 +19,7 @@ args = parser.parse_args()
 n = int(args.infile.read())
 args.infile.close()
 
-fibonacci = fib2(n)
+fibonacci = F(n)
 
 with open("output/fibo.txt", "w", encoding="utf-8", newline="\n") as outfile:
     outfile.write(str(fibonacci) + "\n")
